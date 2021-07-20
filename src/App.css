@@ -7,6 +7,9 @@ body{
     font-family: 'Roboto', sans-serif;
     
 }
+li{
+    list-style-type: none;
+}
 .app {
     max-width: 1000px;
     margin: 0 auto;

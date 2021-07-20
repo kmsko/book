@@ -12,7 +12,7 @@ export const SearchBooks = {
         return instance.get(`?q=${params.textBooks}${params.categories}&orderBy=${params.sortingBy}&startIndex=0&maxResults=30`+API_KEY)
     },
     loadMore(params){
-        return instance.get(`?q=${params.textBooks}`+`&startIndex=${params.startIndex}&maxResults=10`+API_KEY)
+        return instance.get(`?q=${params.textBooks}&startIndex=${params.startIndex}&maxResults=10`+API_KEY)
     },
     getBook(params){
         return instance.get(`/${params}?key=AIzaSyDpM1nzF1_LDeDsgBln9osUhWVedc4H57E`)

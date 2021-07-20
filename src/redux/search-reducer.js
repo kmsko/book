@@ -36,9 +36,7 @@ const searchReducer = (state = initialState, action) => {
             }
         case ADD_BOOK:
             let more = [...state.resultSearch]
-            action.moreBook.map((e)=>{
-              more.push(e)
-            })
+            action.moreBook.map((e)=>more.push(e))
             return {
                 ...state, resultSearch: [...more]
             }
@@ -77,9 +75,13 @@ export const searchAPI = (params) => async (dispatch) => {
     dispatch(endBook(false))
 }
 export const loadMoreAPI = (params) => async (dispatch) => {
+    dispatch(endBook(true))
     let response = await SearchBooks.loadMore(params)
     dispatch(setSettingsSearch(params))
-    if(response.data.items){dispatch(addMoreBook(response.data.items))}
+    if(response.data.items){
+        dispatch(addMoreBook(response.data.items));
+        dispatch(endBook(false))
+    }
     else{dispatch(endBook("Книг больше нет")) }
 }
 export const getBook = (params) => async (dispatch) => {

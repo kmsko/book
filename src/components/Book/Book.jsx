@@ -1,5 +1,4 @@
 import React from "react"
-import { withRouter } from "react-router-dom"
 import default_img_book from "../../assets/image/default_img_book.jpg"
 import Preloader from "../Preloader/Preloader"
 
@@ -28,7 +27,7 @@ const Book = (props) => {
                     }
                 </div>
                 <div className="description_book"> Описание:&nbsp;
-                    {!props.book.description ? <div >Нет описания</div> : <span  >{props.book.description} </span>}
+                    {!props.book.description ? <div >Нет описания</div> :<span dangerouslySetInnerHTML={{ __html: props.book.description }} />}
                 </div>
             </div>
         </div>}

@@ -49,7 +49,7 @@ const Books = (props) => {
         </div>}
 
 
-        {props.end === false && props.resultSearch ? <div className="load_more_wrapper"><button className="load_more" onClick={loadMore}>Load more</button></div> : <div>{props.end}</div>}
+        {props.end === false && props.resultSearch ? <div className="load_more_wrapper"><button className="load_more" onClick={loadMore}>Load more</button></div> : props.end === true ? <div className="load_more_wrapper"> <Preloader /></div> : props.end === "Книг больше нет" && <div>{props.end}</div>}
     </div>
 }
 export default Books
